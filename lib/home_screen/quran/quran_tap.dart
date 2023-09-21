@@ -132,15 +132,7 @@ class QuranTap extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'عدد الايات',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            VerticalDivider(
-              color: Theme.of(context).primaryColor,
-              thickness: 2,
-            ),
-            Text(
-              'اسم الصورة',
+              'Sura Name',
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],

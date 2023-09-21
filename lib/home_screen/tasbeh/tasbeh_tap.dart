@@ -49,14 +49,14 @@ class _TasbehTapState extends State<TasbehTap> {
               vertical: MediaQuery.of(context).size.height * 0.001,
               horizontal: MediaQuery.of(context).size.width * 0.20),
           child: Text(
-            'عدد التسبيحات',
+            'Number of Tasbeh',
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
         Container(
           alignment: Alignment.center,
           margin: EdgeInsets.symmetric(
-              vertical: MediaQuery.of(context).size.height * 0.01,
+              vertical: MediaQuery.of(context).size.height * 0.02,
               horizontal: MediaQuery.of(context).size.width * 0.10),
           height: 80,
           width: 80,
