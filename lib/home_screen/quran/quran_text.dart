@@ -17,7 +17,7 @@ class QuranText extends StatelessWidget {
         child: Text(
           quranText,
           style: Theme.of(context).textTheme.titleSmall,
-          textAlign: TextAlign.end,
+          textAlign: TextAlign.center,
         ));
   }
 }

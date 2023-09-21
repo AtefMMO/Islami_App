@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/islami_theme.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String RouteName = 'SuraDetailsScreen';
@@ -33,7 +34,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
             iconTheme: Theme.of(context).iconTheme,
           ),
           body: verses.length == 0
-              ? Center(child: CircularProgressIndicator())
+              ? Center(
+                  child: CircularProgressIndicator(
+                      color: IslamiTheme.primaryLight))
               : Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
