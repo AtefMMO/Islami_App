@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/hadeth/hadeth_content.dart';
 import 'package:islami/islami_theme.dart';
-
 class HadethTap extends StatefulWidget {
   @override
   State<HadethTap> createState() => _HadethTapState();
@@ -28,7 +28,7 @@ class _HadethTapState extends State<HadethTap> {
           color: IslamiTheme.primaryLight,
         ),
         Text(
-          'Hadeth Name',
+          AppLocalizations.of(context)!.hadeth_name,
           style: Theme.of(context).textTheme.titleLarge,
         ),
         Divider(

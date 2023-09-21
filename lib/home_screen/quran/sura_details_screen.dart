@@ -49,7 +49,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     itemCount: verses.length,
                     itemBuilder: (context, index) {
                       return Text(
-                        '${verses[index]}(${index + 1})',
+                        '${verses[index]}{${index + 1}}',
                         style: Theme.of(context).textTheme.titleSmall,
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.center,

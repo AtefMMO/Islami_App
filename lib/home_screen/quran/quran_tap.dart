@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/quran/quran_text.dart';
 
 class QuranTap extends StatelessWidget {
@@ -132,7 +133,7 @@ class QuranTap extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'Sura Name',
+              AppLocalizations.of(context)!.sura_name,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],

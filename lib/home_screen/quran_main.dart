@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/hadeth/hadeth_tap.dart';
 import 'package:islami/home_screen/quran/quran_tap.dart';
 import 'package:islami/home_screen/radio/radio_tap.dart';
 import 'package:islami/home_screen/tasbeh/tasbeh_tap.dart';
+import 'package:islami/settings/settings_screen.dart';
 
 class QuranMainScreen extends StatefulWidget {
   static const String RouteName = 'QuranMainScreen';
@@ -23,7 +25,7 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
         Scaffold(
           appBar: AppBar(
               title: Text(
-            'Islami',
+            AppLocalizations.of(context)!.app_title,
             style: Theme.of(context).textTheme.titleLarge,
           )),
           bottomNavigationBar: Theme(
@@ -40,19 +42,22 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage('assets/images/icon_quran.png')),
-                      label: ('Quran')),
+                      label: (AppLocalizations.of(context)!.quran)),
                   BottomNavigationBarItem(
                       icon: ImageIcon(
                           AssetImage('assets/images/icon_hadeth.png')),
-                      label: 'Hadeth'),
+                      label: AppLocalizations.of(context)!.hadeth),
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage('assets/images/icon_sebha.png')),
-                      label: 'Sebha'),
+                      label: AppLocalizations.of(context)!.sebha),
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage('assets/images/icon_radio.png')),
-                      label: 'Radio')
+                      label: AppLocalizations.of(context)!.radio),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.settings),
+                      label: AppLocalizations.of(context)!.settings)
                 ]),
           ),
           body: tabs[
@@ -63,5 +68,11 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
     );
   }
 
-  List<Widget> tabs = [QuranTap(), HadethTap(), TasbehTap(), RadioTap()];
+  List<Widget> tabs = [
+    QuranTap(),
+    HadethTap(),
+    TasbehTap(),
+    RadioTap(),
+    SettingsScreen()
+  ];
 }

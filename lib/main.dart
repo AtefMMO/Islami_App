@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/hadeth/hadeth_content.dart';
 import 'package:islami/home_screen/quran/sura_details_screen.dart';
 import 'package:islami/home_screen/quran_main.dart';
 import 'package:islami/islami_theme.dart';
+import 'package:islami/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (BuildContext context) => AppConfigProvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: QuranMainScreen.RouteName,
@@ -20,6 +25,9 @@ class MyApp extends StatelessWidget {
         HadethContent.RouteName: (context) => HadethContent()
       },
       theme: IslamiTheme.lightMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(provider.appLanguage),
     );
   }
 }

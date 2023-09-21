@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TasbehTap extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _TasbehTapState extends State<TasbehTap> {
               vertical: MediaQuery.of(context).size.height * 0.001,
               horizontal: MediaQuery.of(context).size.width * 0.20),
           child: Text(
-            'Number of Tasbeh',
+            AppLocalizations.of(context)!.number_of_tasbeh,
             style: Theme.of(context).textTheme.titleMedium,
           ),
         ),

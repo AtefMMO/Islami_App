@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioTap extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class RadioTap extends StatelessWidget {
                 horizontal: MediaQuery.of(context).size.width * 0.06),
             child: Image.asset('assets/images/radio.png')),
         Text(
-          'Quran Radio',
+          AppLocalizations.of(context)!.quran_radio_channel,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         Container(
