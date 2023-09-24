@@ -4,6 +4,8 @@ import 'package:islami/provider/app_config_provider.dart';
 import 'package:islami/settings/language_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
+import 'mode_bottom_sheet.dart';
+
 class SettingsScreen extends StatefulWidget {
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -33,7 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           padding: const EdgeInsets.all(8),
           child: Container(
             decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: Color.fromARGB(111, 110, 115, 115),
                 borderRadius: BorderRadius.circular(20)),
             padding: EdgeInsets.all(10),
             child: InkWell(
@@ -52,6 +54,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ]),
             ),
           ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(6),
+          child: Row(
+            children: [
+              Text(
+                AppLocalizations.of(context)!.mode,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Container(
+            decoration: BoxDecoration(
+                color: Color.fromARGB(111, 110, 115, 115),
+                borderRadius: BorderRadius.circular(20)),
+            padding: EdgeInsets.all(10),
+            child: InkWell(
+              onTap: () {
+                ShowModeBottomSheet();
+              },
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                        provider.appTheme == ThemeMode.light
+                            ? AppLocalizations.of(context)!.light_mode
+                            : AppLocalizations.of(context)!.dark_mode,
+                        style: Theme.of(context).textTheme.titleMedium),
+                    Icon(Icons.arrow_drop_down)
+                  ]),
+            ),
+          ),
         )
       ],
     );
@@ -60,5 +100,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   ShowLanguageBottomSheet() {
     showModalBottomSheet(
         context: context, builder: (context) => LanguageBottomSheet());
+  }
+
+  ShowModeBottomSheet() {
+    showModalBottomSheet(
+        context: context, builder: (context) => ModeBottomSheet());
   }
 }

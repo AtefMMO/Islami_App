@@ -23,13 +23,13 @@ class RadioTap extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Icon(Icons.skip_previous,
-                  size: 40, color: Theme.of(context).primaryColor),
+                  size: 40, color: Theme.of(context).dividerColor),
               Icon(Icons.play_arrow_sharp,
-                  size: 60, color: Theme.of(context).primaryColor),
+                  size: 60, color: Theme.of(context).dividerColor),
               Icon(
                 Icons.skip_next,
                 size: 40,
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).dividerColor,
               ),
             ],
           ),

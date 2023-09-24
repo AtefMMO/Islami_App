@@ -4,7 +4,9 @@ import 'package:islami/home_screen/hadeth/hadeth_tap.dart';
 import 'package:islami/home_screen/quran/quran_tap.dart';
 import 'package:islami/home_screen/radio/radio_tap.dart';
 import 'package:islami/home_screen/tasbeh/tasbeh_tap.dart';
+import 'package:islami/provider/app_config_provider.dart';
 import 'package:islami/settings/settings_screen.dart';
+import 'package:provider/provider.dart';
 
 class QuranMainScreen extends StatefulWidget {
   static const String RouteName = 'QuranMainScreen';
@@ -18,10 +20,16 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Stack(
       children: [
-        Image.asset('assets/images/bg3.png',
-            fit: BoxFit.fill, width: double.infinity, height: double.infinity),
+        Image.asset(
+            provider.appTheme == ThemeMode.light
+                ? 'assets/images/bg3.png'
+                : 'assets/images/bgDark.png',
+            fit: BoxFit.fill,
+            width: double.infinity,
+            height: double.infinity),
         Scaffold(
           appBar: AppBar(
               title: Text(
@@ -41,7 +49,7 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
                 items: [
                   BottomNavigationBarItem(
                       icon:
-                          ImageIcon(AssetImage('assets/images/icon_quran.png')),
+                      ImageIcon(AssetImage('assets/images/icon_quran.png')),
                       label: (AppLocalizations.of(context)!.quran)),
                   BottomNavigationBarItem(
                       icon: ImageIcon(
@@ -49,11 +57,11 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
                       label: AppLocalizations.of(context)!.hadeth),
                   BottomNavigationBarItem(
                       icon:
-                          ImageIcon(AssetImage('assets/images/icon_sebha.png')),
+                      ImageIcon(AssetImage('assets/images/icon_sebha.png')),
                       label: AppLocalizations.of(context)!.sebha),
                   BottomNavigationBarItem(
                       icon:
-                          ImageIcon(AssetImage('assets/images/icon_radio.png')),
+                      ImageIcon(AssetImage('assets/images/icon_radio.png')),
                       label: AppLocalizations.of(context)!.radio),
                   BottomNavigationBarItem(
                       icon: Icon(Icons.settings),
@@ -61,7 +69,7 @@ class _QuranMainScreenState extends State<QuranMainScreen> {
                 ]),
           ),
           body: tabs[
-              selectedIndex] //body goes to tabs list using the selected index
+          selectedIndex] //body goes to tabs list using the selected index
           ,
         )
       ],

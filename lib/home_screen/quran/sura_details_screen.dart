@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/islami_theme.dart';
+import 'package:islami/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String RouteName = 'SuraDetailsScreen';
@@ -15,6 +17,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)!.settings.arguments as SuraDetailsArgs;
+    var provider = Provider.of<AppConfigProvider>(context);
     if (verses.isEmpty) {
       LoadFile(args.index);
     }
@@ -22,7 +25,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     return Stack(
       children: [
         Image.asset(
-          'assets/images/bg3.png',
+          provider.appTheme == ThemeMode.light
+              ? 'assets/images/bg3.png'
+              : 'assets/images/bgDark.png',
           fit: BoxFit.fill,
           height: double.infinity,
           width: double.infinity,
@@ -39,7 +44,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                       color: IslamiTheme.primaryLight))
               : Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: provider.appTheme == ThemeMode.light
+                          ? Colors.white
+                          : Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(20)),
                   margin: EdgeInsets.symmetric(
                       vertical: MediaQuery.of(context).size.height * 0.05,

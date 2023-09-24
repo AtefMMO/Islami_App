@@ -126,7 +126,7 @@ class QuranTap extends StatelessWidget {
       children: [
         Center(child: Image.asset('assets/images/quran_image.png')),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).dividerColor,
           thickness: 2,
         ),
         Row(
@@ -139,7 +139,7 @@ class QuranTap extends StatelessWidget {
           ],
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).dividerColor,
           thickness: 2,
         ),
         Expanded(
@@ -150,7 +150,7 @@ class QuranTap extends StatelessWidget {
             itemCount: quranList.length,
             separatorBuilder: (context, index) {
               return Divider(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).dividerColor,
                 thickness: 2,
               );
             },
