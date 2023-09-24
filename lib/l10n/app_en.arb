@@ -11,5 +11,8 @@
   "settings": "Settings",
   "english": "English",
   "language": "Language",
-  "arabic": "Arabic"
+  "arabic": "Arabic",
+  "mode": "Mode",
+  "dark_mode": "Dark Mode",
+  "light_mode": "Light Mode"
 }

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/hadeth/hadeth_content.dart';
 import 'package:islami/islami_theme.dart';
+
 class HadethTap extends StatefulWidget {
   @override
   State<HadethTap> createState() => _HadethTapState();
@@ -25,7 +26,7 @@ class _HadethTapState extends State<HadethTap> {
             child: Image.asset('assets/images/hadeth_icon.png')),
         Divider(
           thickness: 2,
-          color: IslamiTheme.primaryLight,
+          color: Theme.of(context).dividerColor,
         ),
         Text(
           AppLocalizations.of(context)!.hadeth_name,
@@ -33,7 +34,7 @@ class _HadethTapState extends State<HadethTap> {
         ),
         Divider(
           thickness: 2,
-          color: IslamiTheme.primaryLight,
+          color: Theme.of(context).dividerColor,
         ),
         ahadethList.length == 0
             ? CircularProgressIndicator(color: IslamiTheme.primaryLight)
@@ -57,7 +58,7 @@ class _HadethTapState extends State<HadethTap> {
                         ),
                         Divider(
                           thickness: 2,
-                          color: IslamiTheme.primaryLight,
+                          color: Theme.of(context).dividerColor,
                         )
                       ],
                     );

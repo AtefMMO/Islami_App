@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/provider/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class TasbehTap extends StatefulWidget {
   @override
@@ -19,10 +21,14 @@ class _TasbehTapState extends State<TasbehTap> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       children: [
         Stack(children: [
-          Center(child: Image.asset('assets/images/headOfSeb7a.png')),
+          Center(
+              child: Image.asset(provider.appTheme == ThemeMode.light
+                  ? 'assets/images/headOfSeb7a.png'
+                  : 'assets/images/HeadOfSebhaDark.png')),
           Container(
             margin: EdgeInsets.symmetric(
                 vertical: MediaQuery.of(context).size.height * 0.08,
@@ -41,7 +47,9 @@ class _TasbehTapState extends State<TasbehTap> {
               child: AnimatedRotation(
                   turns: turns,
                   duration: Duration(milliseconds: 100),
-                  child: Image.asset('assets/images/bodyOfSeb7a.png')),
+                  child: Image.asset(provider.appTheme == ThemeMode.light
+                      ? 'assets/images/bodyOfSeb7a.png'
+                      : 'assets/images/BodyOfSebhaDark.png')),
             ),
           ),
         ]),
@@ -63,7 +71,7 @@ class _TasbehTapState extends State<TasbehTap> {
           width: 80,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(30)),
-              color: Theme.of(context).primaryColor),
+              color: Theme.of(context).dividerColor),
           child: Text(
             '$numberOfTasbeh',
             style: Theme.of(context).textTheme.titleLarge,
@@ -75,7 +83,7 @@ class _TasbehTapState extends State<TasbehTap> {
           height: 40,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(30)),
-              color: Theme.of(context).primaryColor),
+              color: Theme.of(context).dividerColor),
           child: Text(
             '${tasbeh[index]}',
             style: TextStyle(
