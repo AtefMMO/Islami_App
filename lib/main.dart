@@ -6,8 +6,11 @@ import 'package:islami/home_screen/quran_main.dart';
 import 'package:islami/islami_theme.dart';
 import 'package:islami/provider/app_config_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(ChangeNotifierProvider(
       create: (BuildContext context) => AppConfigProvider(), child: MyApp()));
 }
