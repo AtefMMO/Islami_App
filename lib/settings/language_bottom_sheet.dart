@@ -12,14 +12,14 @@ class LanguageBottomSheet extends StatelessWidget {
       children: [
         InkWell(
             onTap: () {
-              provider.ChangeLanguage('en');
+              provider.changeLanguage('en');
             },
             child: provider.appLanguage == 'en'
                 ? onSelected(AppLocalizations.of(context)!.english, context)
                 : unSelected(AppLocalizations.of(context)!.english, context)),
         InkWell(
             onTap: () {
-              provider.ChangeLanguage('ar');
+              provider.changeLanguage('ar');
             },
             child: provider.appLanguage == 'ar'
                 ? onSelected(AppLocalizations.of(context)!.arabic, context)

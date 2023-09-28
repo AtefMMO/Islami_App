@@ -6,7 +6,30 @@ class AppConfigProvider extends ChangeNotifier {
 
   SharedPreferences? sharedPreferences;
 
-  void ChangeLanguage(String newLanguage) async {
+  initializePreferences() async {
+    if (sharedPreferences == null) {
+      sharedPreferences = await SharedPreferences.getInstance();
+    }
+  }
+
+  loadPrefrences() async {
+    await initializePreferences();
+    isDarkTheme = sharedPreferences!.getBool('isDark') ?? false;
+    appTheme = isDarkTheme ? ThemeMode.dark : ThemeMode.light;
+    language = sharedPreferences!.getString('lang') ?? 'en';
+    if (language == 'en') {
+      appLanguage = 'en';
+    } else {
+      appLanguage = 'ar';
+    }
+    notifyListeners();
+  }
+
+  AppConfigProvider() {
+    loadPrefrences();
+  }
+
+  void changeLanguage(String newLanguage) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (appLanguage != newLanguage) {
       appLanguage = newLanguage;
@@ -19,21 +42,12 @@ class AppConfigProvider extends ChangeNotifier {
     }
   }
 
-  bool isdarkTheme = false;
-  String? language = 'en';
+  bool isDarkTheme = false;
+  String language = 'en';
 
   ThemeMode appTheme = ThemeMode.light;
 
-  AppConfigProvider({required this.isdarkTheme, required this.language}) {
-    appTheme = isdarkTheme ? ThemeMode.dark : ThemeMode.light;
-    if (language == 'en') {
-      appLanguage = 'en';
-    } else {
-      appLanguage = 'ar';
-    }
-  }
-
-  void ChangeTheme(ThemeMode newTheme) async {
+  void changeTheme(ThemeMode newTheme) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (appTheme != newTheme) {
       appTheme = newTheme;

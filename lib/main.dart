@@ -13,10 +13,7 @@ void main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   runApp(ChangeNotifierProvider(
-      create: (BuildContext context) => AppConfigProvider(
-          isdarkTheme: prefs.getBool('isDark')!,
-          language: prefs.getString('lang')),
-      child: MyApp()));
+      create: (BuildContext context) => AppConfigProvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

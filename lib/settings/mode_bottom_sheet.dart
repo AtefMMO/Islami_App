@@ -12,7 +12,7 @@ class ModeBottomSheet extends StatelessWidget {
       children: [
         InkWell(
             onTap: () {
-              provider.ChangeTheme(ThemeMode.light);
+              provider.changeTheme(ThemeMode.light);
             },
             child: provider.appTheme == ThemeMode.light
                 ? onSelected(AppLocalizations.of(context)!.light_mode, context)
@@ -20,7 +20,7 @@ class ModeBottomSheet extends StatelessWidget {
                     AppLocalizations.of(context)!.light_mode, context)),
         InkWell(
             onTap: () {
-              provider.ChangeTheme(ThemeMode.dark);
+              provider.changeTheme(ThemeMode.dark);
             },
             child: provider.appTheme == ThemeMode.dark
                 ? onSelected(AppLocalizations.of(context)!.dark_mode, context)
