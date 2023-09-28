@@ -11,8 +11,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+
   runApp(ChangeNotifierProvider(
-      create: (BuildContext context) => AppConfigProvider(), child: MyApp()));
+      create: (BuildContext context) => AppConfigProvider(
+          isdarkTheme: prefs.getBool('isDark')!,
+          language: prefs.getString('lang')),
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
