@@ -1,19 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class AppConfigProvider extends ChangeNotifier {
   String appLanguage = 'en';
 
-  void ChangeLanguage(String newLanguage) {
+  SharedPreferences? sharedPreferences;
+
+  void ChangeLanguage(String newLanguage) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     if (appLanguage != newLanguage) {
       appLanguage = newLanguage;
+      if (appLanguage == 'en') {
+        prefs.setString('lang', 'en');
+        appLanguage = 'en';
+      } else {
+        prefs.setString('lang', 'ar');
+        appLanguage = 'ar';
+      }
       notifyListeners();
     }
   }
 
+  bool isdarkTheme = false;
+  String? language = 'en';
+
   ThemeMode appTheme = ThemeMode.light;
 
-  void ChangeTheme(ThemeMode newTheme) {
+  AppConfigProvider({required this.isdarkTheme, required this.language}) {
+    appTheme = isdarkTheme ? ThemeMode.dark : ThemeMode.light;
+    if (language == 'en') {
+      appLanguage = 'en';
+    } else {
+      appLanguage = 'ar';
+    }
+  }
+
+  void ChangeTheme(ThemeMode newTheme) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     if (appTheme != newTheme) {
       appTheme = newTheme;
+      if (appTheme == ThemeMode.light) {
+        prefs.setBool('isDark', false);
+        appTheme = ThemeMode.light;
+      } else {
+        prefs.setBool('isDark', true);
+        appTheme = ThemeMode.dark;
+      }
+
       notifyListeners();
     }
   }
