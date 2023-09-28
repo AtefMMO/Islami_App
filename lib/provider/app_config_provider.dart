@@ -12,10 +12,8 @@ class AppConfigProvider extends ChangeNotifier {
       appLanguage = newLanguage;
       if (appLanguage == 'en') {
         prefs.setString('lang', 'en');
-        appLanguage = 'en';
       } else {
         prefs.setString('lang', 'ar');
-        appLanguage = 'ar';
       }
       notifyListeners();
     }
@@ -41,10 +39,8 @@ class AppConfigProvider extends ChangeNotifier {
       appTheme = newTheme;
       if (appTheme == ThemeMode.light) {
         prefs.setBool('isDark', false);
-        appTheme = ThemeMode.light;
       } else {
         prefs.setBool('isDark', true);
-        appTheme = ThemeMode.dark;
       }
 
       notifyListeners();
