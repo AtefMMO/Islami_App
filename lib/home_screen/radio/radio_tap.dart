@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioTap extends StatelessWidget {
   @override
@@ -6,28 +7,32 @@ class RadioTap extends StatelessWidget {
     return Column(
       children: [
         Container(
-            margin: EdgeInsets.only(top: 100, right: 50, left: 50, bottom: 40),
+            margin: EdgeInsets.symmetric(
+                vertical: MediaQuery.of(context).size.height * 0.06,
+                horizontal: MediaQuery.of(context).size.width * 0.06),
             child: Image.asset('assets/images/radio.png')),
         Text(
-          'اذاعة القرآن الكريم',
+          AppLocalizations.of(context)!.quran_radio_channel,
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        SizedBox(
-          height: 50,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Icon(Icons.skip_previous,
-                size: 40, color: Theme.of(context).primaryColor),
-            Icon(Icons.play_arrow_sharp,
-                size: 60, color: Theme.of(context).primaryColor),
-            Icon(
-              Icons.skip_next,
-              size: 40,
-              color: Theme.of(context).primaryColor,
-            ),
-          ],
+        Container(
+          margin: EdgeInsets.symmetric(
+              vertical: MediaQuery.of(context).size.height * 0.07,
+              horizontal: MediaQuery.of(context).size.width * 0.06),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(Icons.skip_previous,
+                  size: 40, color: Theme.of(context).dividerColor),
+              Icon(Icons.play_arrow_sharp,
+                  size: 60, color: Theme.of(context).dividerColor),
+              Icon(
+                Icons.skip_next,
+                size: 40,
+                color: Theme.of(context).dividerColor,
+              ),
+            ],
+          ),
         )
       ],
     );

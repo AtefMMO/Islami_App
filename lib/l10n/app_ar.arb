@@ -1,0 +1,18 @@
+{
+  "app_title": "اسلامي",
+  "quran": "قرآن",
+  "hadeth": "حديث",
+  "sebha": "سبحة",
+  "radio": "راديو",
+  "sura_name": "اسم السورة",
+  "hadeth_name": "اسم الحديث",
+  "number_of_tasbeh": "عدد التسبيحات",
+  "quran_radio_channel": "اذاعة القرآن الكريم",
+  "settings": "الاعدادات",
+  "english": "الاجليزية",
+  "language": "اللغة",
+  "arabic": "العربية",
+  "mode": "الوضع",
+  "dark_mode": "وضع الظلام",
+  "light_mode": "وضع الضوء"
+}

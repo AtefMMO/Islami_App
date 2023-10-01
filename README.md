@@ -17,3 +17,4 @@ Islami is your comprehensive Islamic companion app that provides a wealth of res
 **6. Localization:** Islami supports localization in both Arabic and English, making it accessible to a diverse global audience. Switch between languages effortlessly to enhance your understanding and engagement with the app's content.
 
 With Islami, you have a comprehensive Islamic resource at your fingertips, empowering you to deepen your connection with your faith, gain knowledge, and strengthen your spirituality. Download the app today and embark on a journey of enlightenment and devotion.
+

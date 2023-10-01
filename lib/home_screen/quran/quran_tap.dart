@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/quran/quran_text.dart';
 
 class QuranTap extends StatelessWidget {
@@ -125,28 +126,20 @@ class QuranTap extends StatelessWidget {
       children: [
         Center(child: Image.asset('assets/images/quran_image.png')),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).dividerColor,
           thickness: 2,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'عدد الايات',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            VerticalDivider(
-              color: Theme.of(context).primaryColor,
-              thickness: 2,
-            ),
-            Text(
-              'اسم الصورة',
+              AppLocalizations.of(context)!.sura_name,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ],
         ),
         Divider(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).dividerColor,
           thickness: 2,
         ),
         Expanded(
@@ -157,7 +150,7 @@ class QuranTap extends StatelessWidget {
             itemCount: quranList.length,
             separatorBuilder: (context, index) {
               return Divider(
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).dividerColor,
                 thickness: 2,
               );
             },
